@@ -1,3 +1,4 @@
+
 const addBtn = document.getElementById('add')
 
 const notes = JSON.parse(localStorage.getItem('notes'));
@@ -16,6 +17,62 @@ function addNewNote(text = ''){
     <div class="tools">
         <button class="edit"><i class="fas fa-edit"></i></button>
         <button class="delete"><i class="fas fa-trash-alt"></i></button>
+        <div class= "helpdiv">
+            <button class="help"><i class="fa-solid fa-question"></i></button>
+            <span class="helptext">
+                <p class="center-text">Notes formatting guide</p>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Markdown Syntax</th>
+                    </tr>
+                    <tr>
+                        <td>Heading</td>
+                        <td># My Heading</td>
+                    </tr>
+                    <tr>
+                        <td>Bold</td>
+                        <td>**Bold text**</td>
+                    </tr>
+                    <tr>
+                        <td>Italic</td>
+                        <td>*Italic text*</td>
+                    </tr>
+                    <tr>
+                        <td>New line</td>
+                        <td>Press enter</td>
+                    </tr>
+                    <tr>
+                        <td>New Paragraph</td>
+                        <td>Press enter twice</td>
+                    </tr>
+                    <tr>
+                        <td>Unordered List</td>
+                        <td>
+                            - One <br>
+                            - Two <br>
+                            - Three
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ordered List</td>
+                        <td>
+                            1. One <br>
+                            2. Two <br>
+                            3. Three
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Horizontal Rule</td>
+                        <td>---</td>
+                    </tr>
+                    <tr>
+                        <td>Links</td>
+                        <td>https://google.com</td>
+                    </tr>
+                </table>
+            </span>
+        </div>        
     </div>
     <div class="main ${text ? "" : "hidden"}"></div>
     <textarea class="${text ? "hidden" : ""}"></textarea>
@@ -23,6 +80,8 @@ function addNewNote(text = ''){
 
     const editBtn = note.querySelector('.edit');
     const deleteBtn = note.querySelector('.delete');
+    const helpBtn = note.querySelector('.help');
+    const helpText = note.querySelector('.helptext');
     const main = note.querySelector('.main');
     const textArea = note.querySelector('textarea');
 
@@ -46,6 +105,15 @@ function addNewNote(text = ''){
         main.innerHTML = marked.parse(value)
 
         updateLS();
+    })
+
+    helpBtn.addEventListener('click', ()=>{
+        console.log('clicked');
+        if(helpText.style.display === "none"){
+            helpText.style.display = "block";
+        }else{
+            helpText.style.display = "none";
+        }
     })
 
     document.body.appendChild(note)
