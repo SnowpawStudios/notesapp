@@ -20,7 +20,7 @@ body {
 p {
     margin:5px;
 }
-ul {
+ul, ol {
     margin: 0 0 10px 0;
 }
 .add{
@@ -104,9 +104,7 @@ ul {
   
   /* Help text */
   .helptext {
-    visibility: visible;
-    opacity: 1;
-    display: none;
+    visibility: hidden;
     min-width: 300px;
     background-color: #555;
     color: #fff;
@@ -124,10 +122,38 @@ ul {
     transition: opacity 0.3s;
   }
   
-
   
-  /* Show the help text when you mouse over the help container */
-  /* .show {
+  /* Show/hide the help text*/
+  .show {
     visibility: visible;
     opacity: 1;
-  } */
+  }
+
+  .hide {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  /* Help text content styling */
+  .helptext p{
+    font-weight: bold;
+    font-size: 1.2em;
+    border-bottom: 1px solid
+  }
+
+  .helptext table td{
+    text-align: left;
+    padding: 4px;
+    width:50%;
+  }
+  .helptext th, td{
+    border-bottom: 1px solid;
+    
+    padding: 4px;
+    width:50%;
+  }
+
+  .helptext table {
+    border-spacing: 0;
+    width:100%;
+  }

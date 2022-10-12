@@ -1,6 +1,5 @@
 
 const addBtn = document.getElementById('add')
-
 const notes = JSON.parse(localStorage.getItem('notes'));
 
 if(notes){
@@ -19,7 +18,7 @@ function addNewNote(text = ''){
         <button class="delete"><i class="fas fa-trash-alt"></i></button>
         <div class= "helpdiv">
             <button class="help"><i class="fa-solid fa-question"></i></button>
-            <span class="helptext">
+            <span class="helptext hide">
                 <p class="center-text">Notes formatting guide</p>
                 <table>
                     <tr>
@@ -108,12 +107,13 @@ function addNewNote(text = ''){
     })
 
     helpBtn.addEventListener('click', ()=>{
-        console.log('clicked');
-        if(helpText.style.display === "none"){
-            helpText.style.display = "block";
-        }else{
-            helpText.style.display = "none";
-        }
+        if(helpText.classList.contains("hide")){
+            helpText.classList.remove("hide");
+            helpText.classList.add("show");
+        } else{
+            helpText.classList.remove("show");
+            helpText.classList.add("hide");
+        }      
     })
 
     document.body.appendChild(note)
