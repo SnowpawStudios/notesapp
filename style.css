@@ -18,7 +18,8 @@ body {
 }
 
 p {
-    margin:5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 ul, ol {
     margin: 0 0 10px 0;
@@ -36,12 +37,15 @@ ul, ol {
 }
 
 .note {
+    resize:both;
+    overflow: scroll;
     /* background-color: #fff; */
     background-color: #eee;
     box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
     margin: 30px 20px;
     min-height: 400px;
     width: 400px;
+    min-width: 300px;
 }
 
 .note .tools {
@@ -62,11 +66,13 @@ ul, ol {
 
 .note textarea {
     outline: none;
+    /* overflow:hidden; */
     font-family: inherit;
     font-size: 1.2rem;
     border: none;
-    height: 400px;
+    height: 100%;
     width:100%;
+    min-height: 400px;
     padding: 20px;
     resize:none;
 
@@ -98,13 +104,14 @@ ul, ol {
 /* Help text */
 /* Help text container */
 .helpdiv {
-    position: relative;
-    display: inline-block;
+    /* position: relative; */
+    /* display: inline-block; */
   }
   
   /* Help text */
   .helptext {
-    visibility: hidden;
+    /* visibility: hidden; */
+    display:none;
     min-width: 300px;
     background-color: #555;
     color: #fff;
@@ -115,22 +122,24 @@ ul, ol {
     /* Position the help text */
     position: absolute;
     z-index: 1;
-    margin-left: 20px;
+    margin-left: 0px;
   
     /* Fade in help text */
     opacity: 0;
     transition: opacity 0.3s;
+
+    cursor:move;
   }
   
   
   /* Show/hide the help text*/
   .show {
-    visibility: visible;
+    display: block;
     opacity: 1;
   }
 
   .hide {
-    visibility: visible;
+    display: none;
     opacity: 0;
   }
 
